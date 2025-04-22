@@ -213,6 +213,16 @@
       &:active {
         transform: scale(0.95);
       }
+      &[disabled]{
+        color: #b7b7b7;
+        cursor: not-allowed;
+        &:hover,&:active{
+          color: #b7b7b7;
+          background-color: white;
+          border-color: black;
+          transform: unset;
+        }
+      }
     }
     &__remove-button {
       cursor: pointer;

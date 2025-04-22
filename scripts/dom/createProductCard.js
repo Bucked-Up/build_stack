@@ -13,6 +13,10 @@ const createProductCard = ({ prod, value }) => {
   const card = createCardBase({ prod, value });
   const button = document.createElement("button");
   button.classList.add("stack--product-card__add-button");
+  if((value && !value.in_stock) || (!value && prod.stock['[]'] <=0)){
+    button.innerHTML = "OUT OF STOCK"
+    button.setAttribute("disabled","disabled")
+  }else
   button.innerHTML = "+ ADD";
   button.type = "button";
   handleAddButton(button);
