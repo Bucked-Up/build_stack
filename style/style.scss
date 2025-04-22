@@ -58,6 +58,7 @@
       background-color: #d9d9d9;
       border-radius: 100px;
       span {
+        transition: width 0.2s;
         display: block;
         width: 0;
         height: 100%;
@@ -71,6 +72,11 @@
     font-size: 28px;
     font-weight: 700;
     line-height: normal;
+    max-height: 20rem;
+    transition: 0.2s;
+    span{
+      color: black;
+    }
     &:not(.stack--active) {
       margin-top: -30px;
       max-height: 0;
