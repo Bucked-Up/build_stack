@@ -34,9 +34,9 @@
     max-width: 517px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
     h2 {
-      font-size: 70px;
+      font-size: 50px;
       font-weight: 900;
       line-height: 78%;
     }
@@ -71,7 +71,7 @@
     color: #00be5d;
     font-size: 28px;
     font-weight: 700;
-    line-height: normal;
+    line-height: 110%;
     max-height: 20rem;
     transition: 0.2s;
     span {
@@ -254,7 +254,7 @@
   &--price-table {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     font-size: 18px;
     width: 100%;
     max-width: 437px;
@@ -276,4 +276,15 @@
       font-weight: 900;
     }
   }
+}
+#buy-button {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  padding:18px 10px;
+  background: #00BE5D;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
