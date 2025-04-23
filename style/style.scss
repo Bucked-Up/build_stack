@@ -7,7 +7,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    max-width: 1320px;
+    max-width: 1360px;
     margin: auto;
   }
   &--prod-row {
@@ -198,15 +198,44 @@
       word-break: break-all;
       margin-bottom: 8px;
     }
-    &__add-button {
+    &__buttons-wrapper {
+      width: 100%;
+      max-width: 148px;
       margin-top: auto;
+    }
+    &__add-remove-buttons-wrapper {
+      text-align: center;
+      width: 100%;
+      justify-content: space-between;
+      display: none;
+      align-items: center;
+      background-color: #00be5d;
+      color: white;
+      border-radius: 10px;
+      span {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+      }
+      &__button {
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1;
+        padding: 5px 10px;
+        border-radius: 10px;
+        border: none;
+        background-color: #00be5d;
+      }
+    }
+    &__add-button {
       cursor: pointer;
       font-size: 16px;
       font-weight: 600;
       padding: 5px 10px;
       line-height: 1;
       width: 100%;
-      max-width: 148px;
       border: 1px solid black;
       background-color: transparent;
       border-radius: 10px;
@@ -282,8 +311,8 @@
   font-size: 16px;
   font-weight: 700;
   line-height: normal;
-  padding:18px 10px;
-  background: #00BE5D;
+  padding: 18px 10px;
+  background: #00be5d;
   border: none;
   border-radius: 5px;
   cursor: pointer;
