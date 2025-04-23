@@ -33,6 +33,7 @@ const createProductCategory = ({ title, data }) => {
   const categoryTitle = document.createElement("h2");
   const productGrid = document.createElement("div");
   categoryContainer.classList.add("stack--category-container");
+  categoryContainer.id = title.replace(" ","-");
   categoryTitle.innerHTML = title;
   productGrid.classList.add("stack--product-grid");
   categoryContainer.appendChild(categoryTitle);
