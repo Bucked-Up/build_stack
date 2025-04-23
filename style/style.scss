@@ -3,12 +3,16 @@
 
 .stack {
   &--container {
-    padding: 20px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
     max-width: 1360px;
     margin: auto;
+    @media (max-width: 1318px) {
+      flex-direction: column-reverse;
+      padding-bottom: 117px;
+    }
   }
   &--prod-row {
     display: flex;
@@ -16,15 +20,52 @@
     gap: 40px;
     width: 100%;
     max-width: 726px;
+    @media (max-width: 1318px) {
+      max-width: none;
+    }
     h2 {
       font-size: 40px;
       font-weight: 900;
       margin: 0 0 20px 0;
+      @media (max-width: 1318px) {
+        font-size: 30px;
+        margin: 0 0 14px 0;
+      }
     }
   }
   &--relative {
     position: relative;
     padding-top: 60px;
+    @media (max-width: 1318px) {
+      padding: 0;
+      position: static;
+    }
+  }
+  &--mobile-dropdown-button {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @media (max-width: 1318px) {
+      gap: 4px;
+    }
+    &__flex{
+      width: 100%;
+      @media (max-width: 1318px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+    }
+    &__arrow{
+      display: none;
+      transition: 0.2s;
+      @media (max-width: 1318px) {
+        display: block;
+        width: 100%;
+        max-width: 2.5rem;
+      }
+    }
   }
   &--info-row {
     position: sticky;
@@ -35,6 +76,45 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @media (max-width: 1318px) {
+      max-width: none;
+      position: static;
+    }
+    &__mobile-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      &:has(.stack--info-row__mobile-wrapper__dropdown.stack--active){
+        svg{
+          transform: rotate(0.5turn);
+        }
+      }
+      @media (max-width: 1318px) {
+        gap: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background-color: white;
+        padding: 10px 20px;
+      }
+      &__dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition: 0.3s;
+        max-height: 50rem;
+        @media (max-width: 1318px) {
+          gap: 10px;
+          &:not(.stack--active) {
+            max-height: 0;
+            overflow: hidden;
+            margin-top: -10px;
+          }
+        }
+      }
+    }
     h2 {
       font-size: 50px;
       font-weight: 900;
@@ -45,6 +125,7 @@
     }
   }
   &--price-range-wrapper {
+    width: 100%;
     &__prices {
       display: flex;
       align-items: center;
@@ -74,6 +155,9 @@
     line-height: 110%;
     max-height: 20rem;
     transition: 0.2s;
+    @media (max-width: 1318px) {
+      font-size: 16px;
+    }
     span {
       color: black;
     }
@@ -81,10 +165,12 @@
       margin-top: -30px;
       max-height: 0;
       overflow: hidden;
+      @media (max-width: 1318px) {
+        margin-top: -4px;
+      }
     }
   }
   &--selected-products {
-    // max-width: auto !important;
     user-select: none;
     width: 100%;
     padding-bottom: 12px;
@@ -141,6 +227,9 @@
     justify-content: center;
     gap: 20px;
     margin-bottom: 20px;
+    @media (max-width: 700px) {
+      gap: 8px;
+    }
   }
   &--swiper-arrow {
     cursor: pointer;
@@ -148,6 +237,9 @@
     border: none;
     padding: 0;
     width: 46px;
+    @media (max-width: 700px) {
+      width: 38px;
+    }
     svg {
       width: 100%;
     }
@@ -168,6 +260,10 @@
       height: 17px;
       opacity: 1;
       background-color: #d9d9d9;
+      @media (max-width: 700px) {
+        width: 12px;
+        height: 12px;
+      }
       &.swiper-pagination-bullet-active {
         background-color: red;
       }
@@ -183,6 +279,9 @@
     &.small {
       width: 25%;
       margin-bottom: 20px;
+      @media (max-width: 700px) {
+        width: 50%;
+      }
     }
     img {
       width: 100%;
@@ -191,12 +290,18 @@
       font-size: 14px;
       font-weight: 400;
       margin: 2px 0;
+      @media (max-width: 1318px) {
+        font-size: 12px;
+      }
     }
     h4 {
       font-size: 12px;
       font-weight: 700;
       word-break: break-all;
       margin-bottom: 8px;
+      @media (max-width: 1318px) {
+        font-size: 10px;
+      }
     }
     &__buttons-wrapper {
       width: 100%;
@@ -278,6 +383,9 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      @media (max-width: 1318px) {
+        gap: 4px;
+      }
     }
   }
   &--price-table {
@@ -288,6 +396,9 @@
     width: 100%;
     max-width: 437px;
     margin: auto;
+    @media (max-width: 1318px) {
+      max-width: none;
+    }
     &__row {
       display: flex;
       align-items: center;

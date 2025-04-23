@@ -26,52 +26,72 @@
           <b>The Beginner Stack is valid for purchases over $100.</b> Go beyond that amount
           and you'll get a <b>20% discount</b> on the excess. <b>Build your ideal combo and save!</b>
         </p>
-        <div class="stack--price-range-wrapper">
-          <div class="stack--price-range-wrapper__prices">
-            <span current-value>$0</span>
-            <span>$100</span>
+        <div class="stack--info-row__mobile-wrapper">
+          <div class="stack--mobile-dropdown-button">
+            <div class="stack--mobile-dropdown-button__flex">
+              <div class="stack--price-range-wrapper">
+                <div class="stack--price-range-wrapper__prices">
+                  <span current-value>$0</span>
+                  <span goal-value>$100</span>
+                </div>
+                <div class="stack--price-range-wrapper__range">
+                  <span></span>
+                </div>
+              </div>
+              <svg class="stack--mobile-dropdown-button__arrow" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path
+                  d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+              </svg>
+            </div>
+            <p class="stack--left-to-unlock">
+            </p>
           </div>
-          <div class="stack--price-range-wrapper__range">
-            <span></span>
+          <div class="stack--info-row__mobile-wrapper__dropdown">
+            <div class="swiper stack--selected-products">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <span></span>
+                </div>
+                <div class="swiper-slide">
+                  <span></span>
+                </div>
+                <div class="swiper-slide">
+                  <span></span>
+                </div>
+              </div>
+              <div class="swiper-scrollbar stack--selected-products__scrollbar"></div>
+            </div>
+            <div class="stack--price-table">
+              <div class="stack--price-table__row">
+                <p>Subtotal</p>
+                <p subtotal>$0.00</p>
+              </div>
+              <div class="stack--price-table__row">
+                <p><b>Discount</b></p>
+                <p discount>$0.00</p>
+              </div>
+              <span class="stack--price-table__div"></span>
+              <div class="stack--price-table__row">
+                <p><b>Total</b></p>
+                <p total>$0.00</p>
+              </div>
+            </div>
+            <button id="buy-button" type="button">BUY NOW</button>
           </div>
         </div>
-        <p class="stack--left-to-unlock">
-        </p>
-        <div class="swiper stack--selected-products">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <span></span>
-            </div>
-            <div class="swiper-slide">
-              <span></span>
-            </div>
-            <div class="swiper-slide">
-              <span></span>
-            </div>
-          </div>
-          <div class="swiper-scrollbar stack--selected-products__scrollbar"></div>
-        </div>
-        <div class="stack--price-table">
-          <div class="stack--price-table__row">
-            <p>Subtotal</p>
-            <p subtotal>$0.00</p>
-          </div>
-          <div class="stack--price-table__row">
-            <p><b>Discount</b></p>
-            <p discount>$0.00</p>
-          </div>
-          <span class="stack--price-table__div"></span>
-          <div class="stack--price-table__row">
-            <p><b>Total</b></p>
-            <p total>$0.00</p>
-          </div>
-        </div>
-        <button id="buy-button" type="button">BUY NOW</button>
       </div>
     </div>
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="./build-stack.min.js"></script>
+<script>
+  window.buildStack({
+    preWorkoutIds: [162, 161, 698, 977, 255, 1096, 1373, 1374, 1375, 163],
+    supportIds: [1275, 1455, 320, 164, 498, 123],
+    recoveryIds: [201, 485, 312, 1304, 1748],
+  });
+</script>
 
 </html>

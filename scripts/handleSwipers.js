@@ -25,14 +25,10 @@ const handleSwipers = () => {
     swiperArrowsPrev[i].setAttribute("swiper-arrow", i);
     swiperPaginations[i].setAttribute("swiper-pagination", i);
     new Swiper(`[swiper-product='${i}']`, {
-      slidesPerView: 4,
-      slidesPerGroup: 4,
+      slidesPerView: 2,
+      slidesPerGroup: 2,
       spaceBetween: 14,
       rewind: true,
-      grid: {
-        rows: 2,
-        fill: "row",
-      },
       pagination: {
         el: `[swiper-pagination='${i}']`,
         clickable: true,
@@ -40,6 +36,16 @@ const handleSwipers = () => {
       navigation: {
         nextEl: `.stack--next[swiper-arrow='${i}']`,
         prevEl: `.stack--prev[swiper-arrow='${i}']`,
+      },
+      breakpoints: {
+        701: {
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+          grid: {
+            rows: 2,
+            fill: "row",
+          },
+        },
       },
     });
   });

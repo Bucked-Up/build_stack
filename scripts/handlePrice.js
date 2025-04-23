@@ -8,6 +8,7 @@ const handlePrice = async ({ prod, value, isRemoving }) => {
   const subtotal = document.querySelector("[subtotal]");
   const discount = document.querySelector("[discount]");
   const total = document.querySelector("[total]");
+  const goalValueDom = document.querySelector("[goal-value]");
   let discountValue = 0;
 
   const price = round(parseFloat(prod.price.split("$")[1]) + parseFloat(value?.price?.split("$")[1] || 0));
@@ -26,7 +27,9 @@ const handlePrice = async ({ prod, value, isRemoving }) => {
   const valueLeft = round(100 - newPrice);
   if (newPrice < 100) {
     leftToUnlockText.innerHTML = `There is $${valueLeft} left to unlock the stack and activate the discount.`;
+    goalValueDom.style = "";
   } else {
+    goalValueDom.style.display = "none";
     discountValue = newPrice > 100 ? round((20 / 100) * (newPrice - 100)) : 0;
     leftToUnlockText.innerHTML = newPrice > 100
       ? `<span>Stack unlocked.</span> You saved $${discountValue} with 20% off overage.`
