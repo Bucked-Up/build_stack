@@ -431,8 +431,9 @@
       border: none;
       background-color: red;
       display: flex;
+      align-items: center;
+      justify-content: center;
       svg {
-        margin: auto;
         width: 12px;
         flex-shrink: 0;
       }
