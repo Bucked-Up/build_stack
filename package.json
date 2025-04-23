@@ -1,0 +1,17 @@
+{
+  "name": "build_stack",
+  "version": "1.0.0",
+  "main": " ",
+  "repository": "git@github.com:Bucked-Up/build_stack.git",
+  "author": "deigo-lps <diego.lopes0909@gmail.com>",
+  "license": " ",
+  "private": true,
+  "dependencies": {
+    "browserify": "^17.0.1",
+    "esmify": "^2.1.1",
+    "terser": "^5.34.1"
+  },
+  "scripts": {
+    "build": "browserify ./scripts/script.js -o build-stack.min.js -p esmify && terser build-stack.min.js -o build-stack.min.js"
+  }
+}
