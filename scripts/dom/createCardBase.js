@@ -1,6 +1,7 @@
 const createCardBase = ({ prod, value, hasFlexDiv }) => {
   const card = document.createElement("div");
   const image = document.createElement("img");
+  image.loading = lazy;
   const title = document.createElement("h3");
   const flavor = document.createElement("h4");
   card.classList.add("stack--product-card");

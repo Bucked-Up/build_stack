@@ -13,12 +13,12 @@ const createProductSwiper = () => {
   swiperNext.type = "button";
   swiperNext.classList.add("stack--swiper-arrow")
   swiperNext.classList.add("stack--next")
-  swiperNext.innerHTML = '<svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" width="46" height="46" rx="23" fill="#FF0000"/><rect x="32.0488" y="23" width="3.22807" height="18.5614" transform="rotate(135 32.0488 23)" fill="white"/><rect x="18.9238" y="36.125" width="3.22807" height="18.5614" transform="rotate(-135 18.9238 36.125)" fill="white"/></svg>'
+  swiperNext.innerHTML = '<svg width="47" height="46" viewBox="0 0 47 46" fill="white" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" width="46" height="46" rx="23" fill="#FF0000"/><rect x="32.0488" y="23" width="3.22807" height="18.5614" transform="rotate(135 32.0488 23)" fill="white"/><rect x="18.9238" y="36.125" width="3.22807" height="18.5614" transform="rotate(-135 18.9238 36.125)" fill="white"/></svg>'
   const swiperPrev = document.createElement("button");
   swiperPrev.classList.add("stack--swiper-arrow")
   swiperPrev.classList.add("stack--prev")
   swiperPrev.type = "button";
-  swiperPrev.innerHTML = '<svg width="47" height="46" viewBox="0 0 47 46" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" rx="23" transform="matrix(-1 0 0 1 46.5 0)" fill="#FF0000"/><rect width="3.22807" height="18.5614" transform="matrix(0.707107 0.707107 0.707107 -0.707107 14.9512 23)" fill="white"/><rect width="3.22807" height="18.5614" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 28.0762 36.125)" fill="white"/></svg>'
+  swiperPrev.innerHTML = '<svg width="47" height="46" viewBox="0 0 47 46" fill="white" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" rx="23" transform="matrix(-1 0 0 1 46.5 0)" fill="#FF0000"/><rect width="3.22807" height="18.5614" transform="matrix(0.707107 0.707107 0.707107 -0.707107 14.9512 23)" fill="white"/><rect width="3.22807" height="18.5614" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 28.0762 36.125)" fill="white"/></svg>'
   const swiperPagination = document.createElement("div")
   swiperPagination.classList.add("swiper-pagination")
   swiperPagination.classList.add("stack--swiper-pagination")
