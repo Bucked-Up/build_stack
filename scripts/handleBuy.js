@@ -1,4 +1,4 @@
-const handleBuy = async () => {
+const handleBuy = async (upsellId) => {
   const currentProducts = await JSON.parse(localStorage.getItem("stack_selected_products"));
   let string = "https://buckedup.com/cart/add?clear=true";
   if (currentProducts && currentProducts.length > 0) {
@@ -21,6 +21,8 @@ const handleBuy = async () => {
       }
       string = string + `&products[${i}][quantity]=${item.quantity}`;
     });
+    if(upsellId)
+      string = string + `&products[${result.length}][id]=${upsellId}&products[${result.length}][quantity]=1`;
     window.location.href = string;
   }
 };

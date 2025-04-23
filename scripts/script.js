@@ -4,9 +4,10 @@ import handleBuy from "./handleBuy.js";
 import handleInit from "./handleInit.js";
 import handleLocalStorageProducts from "./handleLocalStorageProducts.js";
 import handleMobileDropdown from "./handleMobileDropdown.js";
+import handleModal from "./handleModal.js";
 import handleSwipers from "./handleSwipers.js";
 
-const buildStack = async ({ preWorkoutIds, supportIds, recoveryIds }) => {
+const buildStack = async ({ preWorkoutIds, supportIds, recoveryIds, upsellId }) => {
   toggleLoading();
   const [preWorkoutData, supportData, recoveryData] = await handleLocalStorageProducts({ preWorkoutIds, supportIds, recoveryIds, timestamp: 5 * 60 * 1000 });
   toggleLoading();
@@ -14,6 +15,8 @@ const buildStack = async ({ preWorkoutIds, supportIds, recoveryIds }) => {
   handleSwipers();
   handleInit();
   handleMobileDropdown();
-  document.getElementById("buy-button").addEventListener("click", handleBuy);
+  handleModal();
+  document.getElementById("buy-button").addEventListener("click", ()=>handleBuy(upsellId));
+  document.getElementById("no-button").addEventListener("click", ()=>handleBuy());
 };
 window.buildStack = buildStack;
