@@ -11,7 +11,8 @@ const createSelectedProduct = ({ prod, value }) => {
   const card = createCardBase({ prod, value, hasFlexDiv: true });
   const removeButton = document.createElement("button");
   removeButton.type = "button";
-  removeButton.innerHTML = '<svg viewBox="0 0 17 16" fill="white" xmlns="http://www.w3.org/2000/svg"><rect x="3.75781" y="4.81812" width="2" height="11" transform="rotate(-45 3.75781 4.81812)" fill="white"/><rect x="11.5371" y="3.40381" width="2" height="11" transform="rotate(45 11.5371 3.40381)" fill="white"/></svg>';
+  removeButton.innerHTML =
+    '<svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 384 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>';
   removeButton.classList.add("stack--product-card__remove-button");
   card.querySelector(".stack--product-card__flex").appendChild(removeButton);
   handleRemoveButton({ prod, value, button: removeButton });

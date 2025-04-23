@@ -433,7 +433,8 @@
       display: flex;
       svg {
         margin: auto;
-        width: 16px;
+        width: 12px;
+        flex-shrink: 0;
       }
     }
     &__flex {
@@ -485,7 +486,14 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.2s;
+  &:hover{
+    transform: scale(1.05);
+  }
 }
 #no-button{
   background-color: red;
+  &:hover{
+    transform: unset
+  }
 }
