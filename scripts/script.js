@@ -19,4 +19,11 @@ const buildStack = async ({ preWorkoutIds, supportIds, recoveryIds, upsellId, co
   document.getElementById("buy-button").addEventListener("click", () => handleBuy({ upsellId, couponCode }));
   document.getElementById("no-button").addEventListener("click", () => handleBuy({ couponCode }));
 };
-window.buildStack = buildStack;
+
+buildStack({
+  preWorkoutIds: [162, 161, 698, 977, 255, 1096, 1373, 1374, 1375, 163],
+  supportIds: [1275, 1455, 320, 164, 498, 123],
+  recoveryIds: [201, 485, 312, 1304, 1748],
+  upsellId: 1275,
+});
+// window.buildStack = buildStack;

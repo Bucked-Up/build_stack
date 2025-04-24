@@ -7,15 +7,24 @@ const createPlaceholder = () => {
   return slide;
 };
 
-const handleRemoveButton = ({ prod, value, button }) => {
-  const selectedProductsWrapper = document.querySelector(".stack--selected-products .swiper-wrapper");
-  button.addEventListener("click", () => {
-    handleProductRemoved({ prod, value });
-    const swiperSlide = document.querySelector(`.swiper-slide[prod_id='${prod.id}'][value='${value?.id}']`);
-    swiperSlide.remove();
-    if (selectedProductsWrapper.querySelectorAll(".swiper-slide").length < 3) selectedProductsWrapper.appendChild(createPlaceholder());
+const handleRemoveButton = ({ prod, value, button, isStack }) => {
+  const handleClick = () => {
+    handleProductRemoved({ prod, value, isStack });
+    if (isStack) {
+      const selectedProductsWrapper = document.querySelector(".stack--selected-stack-products");
+      const card = document.querySelector(`.stack--product-card[prod_id='${prod.id}'][value='${value?.id}']`);
+      card.remove();
+      if (selectedProductsWrapper.querySelectorAll(".stack--product-card").length < 3) selectedProductsWrapper.appendChild(document.createElement("span"));
+    } else {
+      const selectedProductsWrapper = document.querySelector(".stack--selected-products .swiper-wrapper");
+      const swiperSlide = document.querySelector(`.swiper-slide[prod_id='${prod.id}'][value='${value?.id}']`);
+      swiperSlide.remove();
+      if (selectedProductsWrapper.querySelectorAll(".swiper-slide").length < 4) selectedProductsWrapper.appendChild(createPlaceholder());
+    }
     window.selectedProductsSwiper.update();
-  });
+  };
+
+  button.addEventListener("click", handleClick);
 };
 
 export default handleRemoveButton;

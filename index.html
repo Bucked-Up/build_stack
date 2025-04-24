@@ -28,7 +28,7 @@
       </div>
     </div>
   </section>
-  <div class="stack--container">
+  <div class="stack--container hide-add-remove-buttons">
     <div class="stack--prod-row">
 
     </div>
@@ -61,19 +61,33 @@
             </p>
           </div>
           <div class="stack--info-row__mobile-wrapper__dropdown">
-            <div class="swiper stack--selected-products">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <span></span>
-                </div>
-                <div class="swiper-slide">
-                  <span></span>
-                </div>
-                <div class="swiper-slide">
-                  <span></span>
-                </div>
+            <div class="stack--selected-products-wrapper">
+              <div class="stack--selected-stack-products">
+                <span></span>
+                <span></span>
+                <span></span>
               </div>
-              <div class="swiper-scrollbar stack--selected-products__scrollbar"></div>
+              <div class="swiper stack--selected-products">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <span></span>
+                  </div>
+                  <div class="swiper-slide">
+                    <span></span>
+                  </div>
+                  <div class="swiper-slide">
+                    <span></span>
+                  </div>
+                  <div class="swiper-slide">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="stack--selected-products__not-allowed">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
+                  <p>You need to have a full stack.</p>
+                </div>
+                <div class="swiper-scrollbar stack--selected-products__scrollbar"></div>
+              </div>
             </div>
             <div class="stack--price-table">
               <div class="stack--price-table__row">
@@ -98,14 +112,14 @@
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="./build-stack.min.js"></script>
+<script src="./scripts/script.js" type="module"></script>
 <script>
-  window.buildStack({
-    preWorkoutIds: [162, 161, 698, 977, 255, 1096, 1373, 1374, 1375, 163],
-    supportIds: [1275, 1455, 320, 164, 498, 123],
-    recoveryIds: [201, 485, 312, 1304, 1748],
-    upsellId: 1275,
-  });
+  // window.buildStack({
+  //   preWorkoutIds: [162, 161, 698, 977, 255, 1096, 1373, 1374, 1375, 163],
+  //   supportIds: [1275, 1455, 320, 164, 498, 123],
+  //   recoveryIds: [201, 485, 312, 1304, 1748],
+  //   upsellId: 1275,
+  // });
 </script>
 
 </html>

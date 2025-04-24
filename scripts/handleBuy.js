@@ -1,5 +1,7 @@
-const handleBuy = async ({ upsellId, couponCode }) => {
-  const currentProducts = await JSON.parse(localStorage.getItem("stack_selected_products"));
+const handleBuy = ({ upsellId, couponCode }) => {
+  const stackProducts = JSON.parse(localStorage.getItem("stack_products"));
+  const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
+  const currentProducts = [...stackProducts,...excessProducts]
   let string = "https://buckedup.com/cart/add?clear=true";
   if (currentProducts && currentProducts.length > 0) {
     const productIds = currentProducts.map((item) => {

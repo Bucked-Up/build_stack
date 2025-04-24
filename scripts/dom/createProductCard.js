@@ -6,8 +6,10 @@ import createSelectedProduct from "./createSelectedProduct.js";
 const createProductCard = ({ prod, value }) => {
   const handleAddButton = (button) => {
     button.addEventListener("click", () => {
+      const array = JSON.parse(localStorage.getItem("stack_products"));
+      const isStack = !array || array?.length < 3;
       handleProductAdded({ prod, value });
-      createSelectedProduct({ prod, value });
+      createSelectedProduct({ prod, value, isStack });
     });
   };
 

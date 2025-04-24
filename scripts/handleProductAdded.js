@@ -1,15 +1,26 @@
 import handlePrice from "./handlePrice.js";
 import handleProdButton from "./handleProdButton.js";
+import handleStep from "./handleStep.js";
 
-const handleProductAdded = async ({ prod, value }) => {
-  const currentProducts = await JSON.parse(localStorage.getItem("stack_selected_products"));
+const handleProductAdded = ({ prod, value }) => {
+  const handleLocalStorage = ({ products, name }) => {
+    if (!products) {
+      localStorage.setItem(name, JSON.stringify([{ prod, value }]));
+    } else {
+      localStorage.setItem(name, JSON.stringify([...products, { prod, value }]));
+    }
+  };
+  const currentStackProducts = JSON.parse(localStorage.getItem("stack_products"));
+  const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
   handlePrice({ prod, value });
-  handleProdButton({ prod, value })
-  if (!currentProducts) {
-    localStorage.setItem("stack_selected_products", JSON.stringify([{ prod, value }]));
-  } else {
-    localStorage.setItem("stack_selected_products", JSON.stringify([...currentProducts, { prod, value }]));
-  }
+  if (currentStackProducts?.length === 3){
+    handleLocalStorage({ products: currentExcessProducts, name: "stack_excess_products" });
+    handleProdButton({ prod, value });
+  } 
+  else{
+    handleLocalStorage({ products: currentStackProducts, name: "stack_products" });
+    handleStep();
+  } 
 };
 
 export default handleProductAdded;

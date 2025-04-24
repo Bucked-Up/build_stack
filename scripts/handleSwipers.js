@@ -1,7 +1,7 @@
 const handleSwipers = () => {
   const selectedProductsSwiper = new Swiper(".stack--selected-products", {
-    slidesPerView: 3,
-    spaceBetween: 20,
+    slidesPerView: 4,
+    spaceBetween: 8,
     freeMode: {
       enabled: true,
       sticky: false,
