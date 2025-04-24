@@ -12,15 +12,15 @@ const handleProductAdded = ({ prod, value }) => {
   };
   const currentStackProducts = JSON.parse(localStorage.getItem("stack_products"));
   const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
-  handlePrice({ prod, value });
-  if (currentStackProducts?.length === 3){
+  if (currentStackProducts?.length === 3) {
     handleLocalStorage({ products: currentExcessProducts, name: "stack_excess_products" });
     handleProdButton({ prod, value });
-  } 
-  else{
+    handlePrice({ prod, value });
+  } else {
     handleLocalStorage({ products: currentStackProducts, name: "stack_products" });
     handleStep();
-  } 
+    handlePrice({ prod, value, isStack: true });
+  }
 };
 
 export default handleProductAdded;

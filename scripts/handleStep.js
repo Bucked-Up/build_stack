@@ -3,7 +3,6 @@ const handleStep = (goBack) => {
   const steps = Array.from(document.querySelectorAll(".stack--category-container"));
   if (steps.every((step) => step.classList.contains("stack--active"))) {
     stackContainer.classList.add("hide-add-remove-buttons");
-    console.log("hide")
     steps.forEach((step) => {
       step.classList.remove("stack--active");
       const titles = step.querySelectorAll(".stack--category-title");
@@ -35,7 +34,6 @@ const handleStep = (goBack) => {
   }
   steps.forEach((step) => {
     stackContainer.classList.remove("hide-add-remove-buttons");
-    console.log("show")
     step.classList.add("stack--active");
     const titles = step.querySelectorAll(".stack--category-title");
     titles[0].classList.remove("stack--active");

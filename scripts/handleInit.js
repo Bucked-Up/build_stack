@@ -9,14 +9,14 @@ const handleInit = () => {
   if (currentStackProducts)
     currentStackProducts.forEach((item) => {
       handleStep();
-      handlePrice({ prod: item.prod, value: item.value });
       createSelectedProduct({ prod: item.prod, value: item.value, isStack: true });
+      handlePrice({ prod: item.prod, value: item.value, isStack: true });
     });
   if (currentExcessProducts)
     currentExcessProducts.forEach((item) => {
-      handlePrice({ prod: item.prod, value: item.value });
       createSelectedProduct({ prod: item.prod, value: item.value });
       handleProdButton({ prod: item.prod, value: item.value });
+      handlePrice({ prod: item.prod, value: item.value });
     });
 };
 

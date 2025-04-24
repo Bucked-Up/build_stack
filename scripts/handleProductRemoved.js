@@ -8,15 +8,16 @@ const handleProductRemoved = ({ prod, value, isStack }) => {
     products.splice(indexToRemove, 1);
     localStorage.setItem(name, JSON.stringify(products));
   };
-  handlePrice({ prod, value, isRemoving: true });
   if (isStack) {
-    handleStep(true)
+    handleStep(true);
     const currentStackProducts = JSON.parse(localStorage.getItem("stack_products"));
-    handleLocalStorage({products: currentStackProducts, name: "stack_products"})
+    handleLocalStorage({ products: currentStackProducts, name: "stack_products" });
+    handlePrice({ prod, value, isRemoving: true, isStack: true });
   } else {
     const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
     handleProdButton({ prod, value, isRemoving: true });
-    handleLocalStorage({products: currentExcessProducts, name: "stack_excess_products"})
+    handleLocalStorage({ products: currentExcessProducts, name: "stack_excess_products" });
+    handlePrice({ prod, value, isRemoving: true });
   }
 };
 
