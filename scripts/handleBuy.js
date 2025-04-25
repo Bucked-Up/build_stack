@@ -3,7 +3,7 @@ const handleBuy = ({ upsellId, couponCode }) => {
   const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
   const currentProducts = [...stackProducts,...excessProducts]
   let string = "https://buckedup.com/cart/add?clear=true";
-  if (currentProducts && currentProducts.length > 0) {
+  if (stackProducts && stackProducts.length === 3) {
     const productIds = currentProducts.map((item) => {
       return { prodId: item.prod.id, optionId: item.prod.options[0]?.id, valueId: item.value?.id };
     });
@@ -25,6 +25,6 @@ const handleBuy = ({ upsellId, couponCode }) => {
     });
     if (upsellId) string = string + `&products[${result.length}][id]=${upsellId}&products[${result.length}][quantity]=1`;
     window.location.href = `${string}&cc=${couponCode}`;
-  }
+  }else alert("You need to have a full stack.")
 };
 export default handleBuy;
