@@ -12,6 +12,9 @@
   .stack--upcharge {
     display: none;
   }
+  .stack--selected-products__not-allowed{
+    display: none;
+  }
 }
 .stack {
   &--modal {
@@ -284,9 +287,6 @@
       visibility: hidden;
     }
   }
-  &--selected-stack-products:not(:has(.stack--product-card:nth-of-type(3))) + &--selected-products &--selected-products__not-allowed {
-    display: flex;
-  }
   &--selected-products {
     transition: max-height 0.2s, padding 0.2s;
     user-select: none;
@@ -319,7 +319,7 @@
       }
     }
     &__not-allowed {
-      display: none;
+      display: flex;
       position: absolute;
       top: 0;
       left: 0;
