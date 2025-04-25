@@ -16,7 +16,7 @@ const handlePrice = async ({ prod, value, isRemoving, isStack }) => {
 
   if (isStack) {
     if (!isRemoving) {
-      leftToUnlockText.classList.add("stack--active");
+      if (hasStack) leftToUnlockText.classList.add("stack--active");
       stackTotal = stackTotal + getProdPrice(prod);
       if (hasStack) {
         stackDiscount = stackTotal - 99.99;

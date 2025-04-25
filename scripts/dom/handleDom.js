@@ -4,18 +4,18 @@ const handleDom = ({ preWorkoutData, supportData, recoveryData }) => {
   const prodRow = document.querySelector(".stack--prod-row")
 
   const preWorkoutCategory = createProductCategory({
-    title: "First, choose a Pre-Workout",
+    title: "STEP 1: PRE-WORKOUTS",
     secondaryTitle: "PRE-WORKOUTS",
     data: preWorkoutData,
     isActive: true,
   });
   const supportCategory = createProductCategory({
-    title: "Now, choose a Support",
+    title: "STEP 2: SUPPORT",
     secondaryTitle: "SUPPORT",
     data: supportData,
   });
   const recoveryCategory = createProductCategory({
-    title: "And Lastly, choose a Recovery",
+    title: "STEP 3: RECOVERY",
     secondaryTitle: "RECOVERY",
     data: recoveryData,
   });
