@@ -37,10 +37,7 @@ const createProductCard = ({ prod, value }) => {
   addRemoveButtonsWrapper.appendChild(quantityCounter);
   addRemoveButtonsWrapper.appendChild(addButton);
   buttonsWrapper.appendChild(addRemoveButtonsWrapper);
-  if ((value && !value.in_stock) || (!value && prod.stock["[]"] <= 0)) {
-    button.innerHTML = "OUT OF STOCK";
-    button.setAttribute("disabled", "disabled");
-  } else button.innerHTML = "+ ADD";
+  button.innerHTML = "+ ADD";
   button.type = "button";
   handleAddButton(button);
   handleAddButton(addButton);
