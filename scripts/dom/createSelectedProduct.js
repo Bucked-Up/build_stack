@@ -16,13 +16,13 @@ const createSelectedProduct = ({ prod, value, isStack }) => {
 
   if (isStack) {
     const selectedProductsWrapper = document.querySelector(".stack--selected-stack-products");
-    selectedProductsWrapper.querySelector("span")?.remove();
+    selectedProductsWrapper.querySelector(".stack--placeholder")?.remove();
     selectedProductsWrapper.insertBefore(card, selectedProductsWrapper.firstChild);
     return;
   }
 
   const selectedProductsWrapper = document.querySelector(".stack--selected-products .swiper-wrapper");
-  selectedProductsWrapper.querySelector(".swiper-slide:has(span)")?.remove();
+  selectedProductsWrapper.querySelector(".swiper-slide:has(.stack--placeholder)")?.remove();
   const swiperSlide = document.createElement("div");
   swiperSlide.classList.add("swiper-slide");
   swiperSlide.setAttribute("prod_id", prod.id);

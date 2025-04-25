@@ -1,6 +1,6 @@
-const getProducts = async ({ ids, country }) => {
+const getProducts = async ({ products, country }) => {
   let fetchUrl = "https://ar5vgv5qw5.execute-api.us-east-1.amazonaws.com/list/";
-  const fetchApi = async (id) => {
+  const fetchApi = async (id, upcharge) => {
     let url = `${fetchUrl}${id}`;
     if (country && country !== "us") url = url + `?country=${country}`;
     try {
@@ -8,12 +8,13 @@ const getProducts = async ({ ids, country }) => {
       if (response.status === 404) throw new Error(`Product ${id} Not Found.`);
       if (response.status == 500 || response.status == 400) throw new Error("Sorry, there was a problem.");
       const data = await response.json();
+      data.product.upcharge = upcharge || 0;
       return data;
     } catch (error) {
       return Promise.reject(error);
     }
   };
-  const data = await Promise.all(ids.map(fetchApi));
+  const data = await Promise.all(products.map(product=>fetchApi(product.id,product.upcharge)));
   return data.map((data) => data.product);
 };
 

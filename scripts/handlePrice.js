@@ -1,13 +1,13 @@
 const round = (num) => Math.round(num * 100) / 100;
-const getProdPrice = (prod) => round(parseFloat(prod.price.split("$")[1]) + parseFloat(prod.value?.price?.split("$")[1] || 0));
+const getProdPrice = (prod, value) => round(parseFloat(prod.price.split("$")[1]) + parseFloat(value?.price?.split("$")[1] || 0));
 
 let stackDiscount = 0;
 let excessDiscount = 0;
 let stackTotal = 0;
 let excessTotal = 0;
+let stackUpcharge = 0;
 
 const handlePrice = async ({ prod, value, isRemoving, isStack }) => {
-  const leftToUnlockText = document.querySelector(".stack--left-to-unlock");
   const hasStack = JSON.parse(localStorage.getItem("stack_products")).length === 3;
 
   const subTotalDom = document.querySelector("[subtotal]");
@@ -16,18 +16,20 @@ const handlePrice = async ({ prod, value, isRemoving, isStack }) => {
 
   if (isStack) {
     if (!isRemoving) {
-      if (hasStack) leftToUnlockText.classList.add("stack--active");
-      stackTotal = stackTotal + getProdPrice(prod);
+      if (hasStack) document.body.classList.add("has-full-stack");
+      stackUpcharge = stackUpcharge + prod.upcharge;
+      stackTotal = stackTotal + getProdPrice(prod, value);
       if (hasStack) {
-        stackDiscount = stackTotal - 99.99;
+        stackDiscount = stackTotal - 99.99 - stackUpcharge;
       }
     } else {
-      leftToUnlockText.classList.remove("stack--active");
-      stackTotal = stackTotal - getProdPrice(prod);
+      document.body.classList.remove("has-full-stack");
+      stackUpcharge = stackUpcharge - prod.upcharge;
+      stackTotal = stackTotal - getProdPrice(prod, value);
       stackDiscount = 0;
     }
   } else {
-    excessTotal = isRemoving ? excessTotal - getProdPrice(prod) : excessTotal + getProdPrice(prod);
+    excessTotal = isRemoving ? excessTotal - getProdPrice(prod, value) : excessTotal + getProdPrice(prod, value);
     excessDiscount = 0.2 * excessTotal;
   }
 

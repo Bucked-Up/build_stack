@@ -49,7 +49,7 @@ const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
     if (Object.keys(prod.stock).every((key) => prod.stock[key] <= 0)) return;
     const title = document.createElement("h3");
     title.classList.add("stack--product-title");
-    title.innerHTML = prod.name;
+    title.innerHTML = `${prod.name} <span class="stack--upcharge">${prod.upcharge ? `(+$${prod.upcharge})` : ""}</span>`;
     productGrid.appendChild(title);
     if (prod.options[0]) {
       const { swiper, wrapper, navigationContainer } = createProductSwiper();
