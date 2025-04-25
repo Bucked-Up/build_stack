@@ -15,9 +15,13 @@ const buildStack = async ({ preWorkoutIds, supportIds, recoveryIds, upsellId, co
   handleSwipers();
   handleInit();
   handleMobileDropdown();
-  handleModal();
-  document.getElementById("buy-button").addEventListener("click", () => handleBuy({ upsellId, couponCode }));
-  document.getElementById("no-button").addEventListener("click", () => handleBuy({ couponCode }));
+  if(upsellId){
+    handleModal();
+    document.getElementById("buy-button").addEventListener("click", () => handleBuy({ upsellId, couponCode }));
+    document.getElementById("no-button").addEventListener("click", () => handleBuy({ couponCode }));
+  }else{
+    document.getElementById("upsell-button").addEventListener("click", () => handleBuy({ couponCode }));
+  }
 };
 
 // buildStack({
