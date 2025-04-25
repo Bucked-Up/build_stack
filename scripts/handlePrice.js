@@ -33,9 +33,9 @@ const handlePrice = async ({ prod, value, isRemoving, isStack }) => {
     excessDiscount = 0.2 * excessTotal;
   }
 
-  discountDom.innerHTML = `$${(stackDiscount + excessDiscount).toFixed(2)}`;
-  subTotalDom.innerHTML = `$${(stackTotal + excessTotal).toFixed(2)}`;
-  totalDom.innerHTML = `$${(stackTotal + excessTotal - stackDiscount - excessDiscount).toFixed(2)}`;
+  discountDom.innerHTML = `$${Math.abs((stackDiscount + excessDiscount).toFixed(2))}`;
+  subTotalDom.innerHTML = `$${Math.abs((stackTotal + excessTotal).toFixed(2))}`;
+  totalDom.innerHTML = `$${Math.abs((stackTotal + excessTotal - stackDiscount - excessDiscount).toFixed(2))}`;
 };
 
 export default handlePrice;
