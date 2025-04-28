@@ -8,7 +8,12 @@ let excessTotal = 0;
 let stackUpcharge = 0;
 
 const handlePrice = async ({ prod, value, isRemoving, isStack }) => {
+  // const stackQtty = JSON.parse(localStorage.getItem("stack_products"))?.length || 0
+  // const excessQtty = JSON.parse(localStorage.getItem("stack_excess_products"))?.length || 0
+
   const hasStack = JSON.parse(localStorage.getItem("stack_products")).length === 3;
+  // const prodQttyDOM = document.querySelector("[prod-qtty]");
+  // prodQttyDOM.innerHTML = `(${stackQtty + excessQtty})`
 
   const subTotalDom = document.querySelector("[subtotal]");
   const discountDom = document.querySelector("[discount]");

@@ -38,15 +38,20 @@
   </section>
   <div class="stack--container hide-add-remove-buttons">
     <div class="stack--prod-row">
-      <p class="stack--left-to-unlock">
-        STACK UNLOCKED! <span>Every extra product you add is 20% off—no limits.</span>
-      </p>
+      <button type="button" class="stack--go-back">
+        <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="23" cy="23" r="22" stroke="black" stroke-width="2" />
+          <path
+            d="M10.5455 21.6758C9.8201 22.4082 9.8201 23.5977 10.5455 24.3301L19.8313 33.7051C20.5567 34.4375 21.7348 34.4375 22.4603 33.7051C23.1857 32.9727 23.1857 31.7832 22.4603 31.0508L16.3375 24.875H34.1429C35.1701 24.875 36 24.0371 36 23C36 21.9629 35.1701 21.125 34.1429 21.125H16.3433L22.4545 14.9492C23.1799 14.2168 23.1799 13.0273 22.4545 12.2949C21.729 11.5625 20.5509 11.5625 19.8255 12.2949L10.5397 21.6699L10.5455 21.6758Z"
+            fill="black" />
+        </svg>
+      </button>
     </div>
     <div class="stack--relative">
       <div class="stack--info-row">
         <div class="stack--info-row__mobile-wrapper">
           <div class="stack--mobile-dropdown-button">
-            <p>View Your Selections</p>
+            <p>Review and Checkout</p>
             <svg class="stack--mobile-dropdown-button__arrow" xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
               <path
@@ -54,6 +59,9 @@
             </svg>
           </div>
           <div class="stack--info-row__mobile-wrapper__dropdown">
+            <p class="stack--left-to-unlock">
+              STACK UNLOCKED! <span>Every extra product you add is 20% off—no limits.</span>
+            </p>
             <div class="stack--selected-products-wrapper">
               <div class="stack--selected-stack-products">
                 <span class="stack--placeholder"></span>
@@ -109,6 +117,7 @@
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- <script src="./scripts/script.js" type="module"></script> -->
 <script src="./build-stack.min.js"></script>
 <script>
   window.buildStack({

@@ -1,6 +1,12 @@
 const handleStep = (goBack) => {
   const stackContainer = document.querySelector(".stack--container");
   const steps = Array.from(document.querySelectorAll(".stack--category-container"));
+  const dropdown = document.querySelector(".stack--info-row__mobile-wrapper__dropdown");
+  const goBackButton = document.querySelector(".stack--go-back");
+
+  if (goBack && steps.find((step) => step.classList.contains("stack--active")) == steps[1]) goBackButton.classList.remove("stack--active");
+  else goBackButton.classList.add("stack--active");
+
   if (steps.every((step) => step.classList.contains("stack--active"))) {
     stackContainer.classList.add("hide-add-remove-buttons");
     steps.forEach((step) => {
@@ -12,7 +18,7 @@ const handleStep = (goBack) => {
     steps[steps.length - 1].classList.add("stack--active");
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
     return;
   }
@@ -27,12 +33,13 @@ const handleStep = (goBack) => {
       }
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
       return;
     }
   }
   steps.forEach((step) => {
+    dropdown.classList.add("stack--active");
     stackContainer.classList.remove("hide-add-remove-buttons");
     step.classList.add("stack--active");
     const titles = step.querySelectorAll(".stack--category-title");
@@ -41,7 +48,7 @@ const handleStep = (goBack) => {
   });
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: "smooth",
   });
 };
 

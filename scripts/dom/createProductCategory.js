@@ -33,6 +33,10 @@ const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
   const categoryTitle = document.createElement("h2");
   const categorySecondaryTitle = document.createElement("h2");
   const productGrid = document.createElement("div");
+  // const goBackButton = document.createElement("button");
+  // goBackButton.type = "button";
+  // goBackButton.classList.add("stack--go-back")
+  // goBackButton.innerHTML = '<svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="23" cy="23" r="22" stroke="black" stroke-width="2"/><path d="M10.5455 21.6758C9.8201 22.4082 9.8201 23.5977 10.5455 24.3301L19.8313 33.7051C20.5567 34.4375 21.7348 34.4375 22.4603 33.7051C23.1857 32.9727 23.1857 31.7832 22.4603 31.0508L16.3375 24.875H34.1429C35.1701 24.875 36 24.0371 36 23C36 21.9629 35.1701 21.125 34.1429 21.125H16.3433L22.4545 14.9492C23.1799 14.2168 23.1799 13.0273 22.4545 12.2949C21.729 11.5625 20.5509 11.5625 19.8255 12.2949L10.5397 21.6699L10.5455 21.6758Z" fill="black"/></svg>'
   categoryContainer.classList.add("stack--category-container");
   if (isActive) categoryContainer.classList.add("stack--active");
   categoryContainer.id = secondaryTitle.replaceAll(" ", "-").replaceAll(",", "").toLowerCase();
@@ -42,6 +46,7 @@ const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
   categoryTitle.classList.add("stack--active");
   categorySecondaryTitle.classList.add("stack--category-title");
   productGrid.classList.add("stack--product-grid");
+  // categoryContainer.appendChild(goBackButton);
   categoryContainer.appendChild(categoryTitle);
   categoryContainer.appendChild(categorySecondaryTitle);
   categoryContainer.appendChild(productGrid);
