@@ -6,6 +6,7 @@ const createCardBase = ({ prod, value, hasFlexDiv }) => {
   const image = document.createElement("img");
   image.loading = "lazy";
   const title = document.createElement("h3");
+  title.classList.add("stack--product-card__title")
   const flavor = document.createElement("h4");
   card.classList.add("stack--product-card");
   title.innerHTML = `${prod.name} <span class="stack--upcharge-title">${prod.upcharge ? `(+$${prod.upcharge})` : ""}</span>`;

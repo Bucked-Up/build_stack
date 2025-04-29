@@ -6,12 +6,18 @@ import handleStep from "./handleStep.js";
 const handleInit = () => {
   const currentStackProducts = JSON.parse(localStorage.getItem("stack_products"));
   const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
-  if (currentStackProducts)
+  const choosenFormula = localStorage.getItem("stack_choosen_formula")
+  if(choosenFormula){
+    document.querySelector(`[formula-id='${choosenFormula}']`).classList.add("stack--active")
+    handleStep();
+  }
+  if (currentStackProducts){
     currentStackProducts.forEach((item) => {
       handleStep();
       createSelectedProduct({ prod: item.prod, value: item.value, isStack: true });
       handlePrice({ prod: item.prod, value: item.value, isStack: true });
     });
+  }
   if (currentExcessProducts)
     currentExcessProducts.forEach((item) => {
       createSelectedProduct({ prod: item.prod, value: item.value });

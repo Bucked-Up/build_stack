@@ -28,33 +28,37 @@ const createProductSwiper = () => {
   return { swiper: swiper, wrapper: swiperWrapper, navigationContainer };
 };
 
-const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
+const createProductCategory = ({ title, secondaryTitle, data, hasFormulas }) => {
   const categoryContainer = document.createElement("div");
   const categoryTitle = document.createElement("h2");
   const categorySecondaryTitle = document.createElement("h2");
-  const productGrid = document.createElement("div");
+  const productsWrapper = document.createElement("div");
   categoryContainer.classList.add("stack--category-container");
-  if (isActive) categoryContainer.classList.add("stack--active");
   categoryContainer.id = secondaryTitle.replaceAll(" ", "-").replaceAll(",", "").toLowerCase();
   categoryTitle.innerHTML = title;
   categorySecondaryTitle.innerHTML = secondaryTitle;
   categoryTitle.classList.add("stack--category-title");
   categoryTitle.classList.add("stack--active");
   categorySecondaryTitle.classList.add("stack--category-title");
-  productGrid.classList.add("stack--product-grid");
+  productsWrapper.classList.add("stack--products-wrapper");
   categoryContainer.appendChild(categoryTitle);
   categoryContainer.appendChild(categorySecondaryTitle);
-  categoryContainer.appendChild(productGrid);
+  categoryContainer.appendChild(productsWrapper);
   data.forEach((prod) => {
     if (Object.keys(prod.stock).every((key) => prod.stock[key] <= 0)) return;
     const title = document.createElement("h3");
+    const prodWrapper = document.createElement("div");
+    prodWrapper.classList.add("stack--product-wrapper");
+    productsWrapper.appendChild(prodWrapper);
     title.classList.add("stack--product-title");
     title.innerHTML = `${prod.name} <span class="stack--upcharge">${prod.upcharge ? `(+$${prod.upcharge})` : ""}</span>`;
-    productGrid.appendChild(title);
+    prodWrapper.appendChild(title);
+    if (hasFormulas) {
+      prodWrapper.setAttribute("formula-id", prod.id);
+    }
     if (prod.options[0]) {
       const { swiper, wrapper, navigationContainer } = createProductSwiper();
-      productGrid.appendChild(swiper);
-      productGrid.appendChild(navigationContainer);
+      const grid = document.createElement("div");
       prod.options[0].values.forEach((value) => {
         if (!value.in_stock) return;
         const slide = document.createElement("div");
@@ -62,11 +66,13 @@ const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
         slide.appendChild(createProductCard({ prod, value }));
         wrapper.appendChild(slide);
       });
+      prodWrapper.appendChild(swiper);
+      prodWrapper.appendChild(navigationContainer);
     } else {
       if (prod.stock["[]"] <= 0) return;
       const prodCard = createProductCard({ prod });
       prodCard.classList.add("small");
-      productGrid.appendChild(prodCard);
+      productsWrapper.appendChild(prodCard);
     }
   });
   return categoryContainer;

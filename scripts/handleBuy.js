@@ -11,7 +11,7 @@ const handleStackProducts = async (stackProducts,stackId) => {
     let aux = "";
     if (prod.prod.name.includes("100 Series")) name = "100 Series";
     else if (prod.prod.name.includes("Hydration")) name = "Hydration";
-    else if (prod.prod.name.includes("Non-Stimulant")) aux = "Stim";
+    else if (prod.prod.name.includes("Non-Stimulant")) name = "Stim";
     else if (prod.prod.name.includes("Gummies")) aux = "Gummies";
     else if (prod.prod.name.includes("Babe")) aux = prod.prod.name.includes("Bikini") ? "Bikini" : "Pre";    
     const stackValue = data.product.options.flatMap((option) => option.values.map((value) => ({ ...value, optionId: option.id }))).find((item) => includesWholeWord(item.name, name) && includesWholeWord(item.name, aux) && item.name.toLowerCase().includes((prod.value?.name || "").toLowerCase()));
