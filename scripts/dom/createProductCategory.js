@@ -51,7 +51,7 @@ const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
   categoryContainer.appendChild(categorySecondaryTitle);
   categoryContainer.appendChild(productGrid);
   data.forEach((prod) => {
-    if (Object.keys(prod.stock).every((key) => prod.stock[key] <= 0)) return;
+    // if (Object.keys(prod.stock).every((key) => prod.stock[key] <= 0)) return;
     const title = document.createElement("h3");
     title.classList.add("stack--product-title");
     title.innerHTML = `${prod.name} <span class="stack--upcharge">${prod.upcharge ? `(+$${prod.upcharge})` : ""}</span>`;
@@ -68,7 +68,7 @@ const createProductCategory = ({ title, secondaryTitle, data, isActive }) => {
         wrapper.appendChild(slide);
       });
     } else {
-      if (prod.stock["[]"] <= 0) return;
+      // if (prod.stock["[]"] <= 0) return;
       const prodCard = createProductCard({ prod });
       prodCard.classList.add("small");
       productGrid.appendChild(prodCard);
