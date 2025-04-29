@@ -2,14 +2,13 @@ import toggleLoading from "./dom/toggleLoading.js";
 
 const includesWholeWord = (str, word) => new RegExp(`\\b${word}\\b`).test(str);
 
-const handleStackProducts = async (stackProducts) => {
+const handleStackProducts = async (stackProducts,stackId) => {
   let string = "";
-  const response = await fetch("https://ar5vgv5qw5.execute-api.us-east-1.amazonaws.com/list/2165")
-  const data = await response.json()
+  const response = await fetch(`https://ar5vgv5qw5.execute-api.us-east-1.amazonaws.com/list/${stackId}`);
+  const data = await response.json();
   stackProducts.forEach((prod) => {
     let name = prod.prod.name.split(" ")[0];
     let aux = "";
-    if (name === "Original") name = "Racked";
     if (prod.prod.name.includes("100 Series")) name = "100 Series";
     else if (prod.prod.name.includes("Hydration")) name = "Hydration";
     else if (prod.prod.name.includes("Non-Stimulant")) aux = "Stim";
@@ -19,19 +18,20 @@ const handleStackProducts = async (stackProducts) => {
     string = string + `&products[0][options][${stackValue.optionId}]=${stackValue.id}`;
   });
   string = string + `&products[0][quantity]=1`;
-  return string
+  return string;
 };
 
-const handleBuy = async ({ upsellId, couponCode }) => {
+const handleBuy = async ({ stackId, upsellId, couponCode }) => {
   toggleLoading();
   const stackProducts = JSON.parse(localStorage.getItem("stack_products"));
   const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
-  let string = "https://buckedup.com/cart/add?clear=true&products[0][id]=2165";
+  let string = `https://buckedup.com/cart/add?clear=true&products[0][id]=${stackId}`;
   if (stackProducts && stackProducts.length === 3) {
-    string = string + await handleStackProducts(stackProducts)
-    const excessMapped = excessProducts.map((item) => {
-      return { prodId: item.prod.id, optionId: item.prod.options[0]?.id, valueId: item.value?.id };
-    });
+    string = string + (await handleStackProducts(stackProducts,stackId));
+    const excessMapped =
+      excessProducts?.map((item) => {
+        return { prodId: item.prod.id, optionId: item.prod.options[0]?.id, valueId: item.value?.id };
+      }) || [];
     const excessNoDuplicate = [];
     excessMapped.forEach((item) => {
       const existing = excessNoDuplicate.find((r) => r.prodId === item.prodId && r.valueId === item.valueId);
