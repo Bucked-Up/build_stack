@@ -1,6 +1,6 @@
 import toggleLoading from "./dom/toggleLoading.js";
 
-const includesWholeWord = (str, word) => new RegExp(`\\b${word}\\b`).test(str);
+const includesWholeWord = (str, word) => new RegExp(`\\b${word}\\b`, 'i').test(str);
 
 const handleStackProducts = async (stackProducts,stackId) => {
   let string = "";
@@ -13,8 +13,8 @@ const handleStackProducts = async (stackProducts,stackId) => {
     else if (prod.prod.name.includes("Hydration")) name = "Hydration";
     else if (prod.prod.name.includes("Non-Stimulant")) aux = "Stim";
     else if (prod.prod.name.includes("Gummies")) aux = "Gummies";
-    else if (prod.prod.name.includes("Babe")) aux = prod.prod.name.includes("Bikini") ? "Bikini" : "Pre";
-    const stackValue = data.product.options.flatMap((option) => option.values.map((value) => ({ ...value, optionId: option.id }))).find((item) => includesWholeWord(item.name, name) && includesWholeWord(item.name, aux) && item.name.includes(prod.value?.name || ""));
+    else if (prod.prod.name.includes("Babe")) aux = prod.prod.name.includes("Bikini") ? "Bikini" : "Pre";    
+    const stackValue = data.product.options.flatMap((option) => option.values.map((value) => ({ ...value, optionId: option.id }))).find((item) => includesWholeWord(item.name, name) && includesWholeWord(item.name, aux) && item.name.toLowerCase().includes((prod.value?.name || "").toLowerCase()));
     string = string + `&products[0][options][${stackValue.optionId}]=${stackValue.id}`;
   });
   string = string + `&products[0][quantity]=1`;
