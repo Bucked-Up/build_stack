@@ -160,6 +160,15 @@
         margin: 0 0 14px 0;
       }
     }
+    .stack--product-card img{
+      transition: 0.2s;
+      cursor: pointer;
+      @media (min-width: 1319px) {
+        &:hover{
+          transform: scale(1.05);
+        }
+      }
+    }
     .stack--upcharge-title {
       display: none;
     }
@@ -169,6 +178,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    padding:0;
     margin-bottom: -30px;
     margin-right: auto;
     &.stack--active {
@@ -464,9 +474,6 @@
       width: 100%;
     }
     transition: 0.2s;
-    &:hover {
-      transform: scale(1.05);
-    }
     &:active {
       transform: scale(0.95);
     }
@@ -492,8 +499,10 @@
   &--formula-card{
     cursor: pointer;
     transition: 0.2s;
-    &:hover{
-      transform: scale(1.05);
+    @media(min-width: 1317px){
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
   &--product-card {
@@ -512,6 +521,7 @@
     }
     img {
       width: 100%;
+      aspect-ratio: 1;
     }
     &__title {
       font-size: 14px;
@@ -691,8 +701,10 @@
   @media (max-width: 1318px) {
     padding: 10px;
   }
-  &:hover {
-    transform: scale(1.05);
+  @media(min-width: 1317px){
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
 #no-button {

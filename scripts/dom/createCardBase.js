@@ -1,3 +1,6 @@
+import handleProductAdded from "../handleProductAdded";
+import createSelectedProduct from "./createSelectedProduct";
+
 const round = (num) => Math.round(num * 100) / 100;
 const getProdPrice = (prod, value) => round(parseFloat(prod.price.split("$")[1]) + parseFloat(value?.price?.split("$")[1] || 0));
 
@@ -6,7 +9,7 @@ const createCardBase = ({ prod, value, hasFlexDiv }) => {
   const image = document.createElement("img");
   image.loading = "lazy";
   const title = document.createElement("h3");
-  title.classList.add("stack--product-card__title")
+  title.classList.add("stack--product-card__title");
   const flavor = document.createElement("h4");
   card.classList.add("stack--product-card");
   title.innerHTML = `${prod.name} <span class="stack--upcharge-title">${prod.upcharge ? `(+$${prod.upcharge})` : ""}</span>`;
@@ -27,6 +30,13 @@ const createCardBase = ({ prod, value, hasFlexDiv }) => {
     if (value) div.appendChild(flavor);
     card.appendChild(flexWrapper);
   } else {
+    image.role = "button";
+    image.addEventListener("click", () => {
+      const array = JSON.parse(localStorage.getItem("stack_products"));
+      const isStack = !array || array?.length < 3;
+      handleProductAdded({ prod, value });
+      createSelectedProduct({ prod, value, isStack });
+    });
     const priceDOM = document.createElement("p");
     const newPriceDOM = document.createElement("p");
     const price = getProdPrice(prod, value);
