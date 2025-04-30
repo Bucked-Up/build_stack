@@ -1,7 +1,6 @@
-const handleMobileDropdown = () =>{
-  const button = document.querySelector(".stack--mobile-dropdown-button");
+const handleMobileDropdown = (el) =>{
   const dropdown = document.querySelector(".stack--info-row__mobile-wrapper__dropdown");
-  button.addEventListener("click",()=>{
+  el.addEventListener("click",()=>{
     dropdown.classList.toggle("stack--active")
   })
 }

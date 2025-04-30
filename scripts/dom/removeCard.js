@@ -1,3 +1,5 @@
+import handleMobileDropdown from "../handleMobileDropdown.js";
+
 const createPlaceholder = () =>{
   const placeholder = document.createElement("span");
   placeholder.classList.add("stack--placeholder")
@@ -7,7 +9,12 @@ const createPlaceholder = () =>{
 const createPlaceholderSwiper = () => {
   const slide = document.createElement("div");
   slide.classList.add("swiper-slide");
-  slide.appendChild(createPlaceholder());
+  const placeholder = createPlaceholder()
+  const text = document.createElement("span");
+  text.innerHTML = "Add More";
+  placeholder.appendChild(text)
+  handleMobileDropdown(placeholder)
+  slide.appendChild(placeholder);
   return slide;
 };
 

@@ -20,7 +20,9 @@ const buildStack = async ({ stackId, categories, formulas, upsellId, couponCode 
   handleDom({ data, formulas });
   handleSwipers();
   handleInit();
-  handleMobileDropdown();
+  const mobileButton = document.querySelector(".stack--mobile-dropdown-button");
+  const placeholders = document.querySelectorAll(".swiper .stack--placeholder");
+  [mobileButton,...placeholders].forEach(el=>handleMobileDropdown(el))
   handleGoBackButton();
   if (upsellId) {
     handleModal();

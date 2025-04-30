@@ -2,6 +2,10 @@
 @import "./loading-screen";
 
 .has-full-stack {
+  .stack--selected-products{
+    max-height: 20rem;
+      padding-bottom: 12px;
+  }
   .stack--left-to-unlock {
     max-height: 20rem;
     margin-bottom: 0;
@@ -197,6 +201,7 @@
       transition: 0.2s;
       width: 100%;
       max-width: 2.5rem;
+      // animation: up-down 0.3s infinite alternate ease-in-out;
     }
     p {
       font-size: 18px;
@@ -315,7 +320,10 @@
   &--selected-products,
   &--selected-stack-products {
     .stack--placeholder {
-      display: block;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
       width: 100%;
       background-color: #eef0fa;
       aspect-ratio: 1;
@@ -342,6 +350,10 @@
     cursor: grab;
     max-height: 0;
     overflow: hidden;
+    span{
+      font-size: 14px;
+      font-weight: 600;
+    }
     .stack--upcharge-title {
       display: none;
     }
@@ -689,3 +701,12 @@
     transform: unset;
   }
 }
+
+// @keyframes up-down{
+//   from {
+//     transform: translateY(0) rotate(180deg);
+//   }
+//   to {
+//     transform: translateY(-6px) rotate(180deg);
+//   }
+// }
