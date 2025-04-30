@@ -8,6 +8,12 @@
     @media (max-width: 1318px) {
       margin-bottom: 0;
     }
+    &.stack--left-to-unlock-big{
+      margin-bottom: -20px;
+      @media (max-width: 1318px) {
+        margin-bottom: -10px;
+      }
+    }
   }
   .stack--upcharge {
     display: none;
@@ -285,6 +291,14 @@
     font-weight: 700;
     line-height: 110%;
     transition: 0.2s;
+    &.stack--left-to-unlock-big{
+      margin-bottom: -40px;
+      font-size: 30px;
+      @media (max-width: 1318px) {
+        font-size: 24px;
+        margin-bottom: -20px;
+      }
+    }
     @media (max-width: 1318px) {
       font-size: 20px;
       margin-bottom: -10px;
