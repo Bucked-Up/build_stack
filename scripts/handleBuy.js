@@ -22,12 +22,12 @@ const handleStackProducts = async (stackProducts,stackId) => {
 };
 
 const handleBuy = async ({ stackId, upsellId, couponCode }) => {
-  toggleLoading();
-  const urlParams = new URLSearchParams(window.location.search);
   const stackProducts = JSON.parse(localStorage.getItem("stack_products"));
-  const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
-  let string = `https://buckedup.com/cart/add?clear=true&products[0][id]=${stackId}`;
   if (stackProducts && stackProducts.length === 3) {
+    toggleLoading();
+    const urlParams = new URLSearchParams(window.location.search);
+    const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
+    let string = `https://buckedup.com/cart/add?clear=true&products[0][id]=${stackId}`;
     string = string + (await handleStackProducts(stackProducts,stackId));
     const excessMapped =
       excessProducts?.map((item) => {
@@ -51,6 +51,6 @@ const handleBuy = async ({ stackId, upsellId, couponCode }) => {
     });
     if (upsellId) string = string + `&products[${excessNoDuplicate.length}][id]=${upsellId}&products[${excessNoDuplicate.length}][quantity]=1`;
     window.location.href = `${string}&cc=${couponCode}&${urlParams}`;
-  } else alert("You need to have a full stack.");
+  }
 };
 export default handleBuy;
