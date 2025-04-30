@@ -23,6 +23,7 @@ const handleStackProducts = async (stackProducts,stackId) => {
 
 const handleBuy = async ({ stackId, upsellId, couponCode }) => {
   toggleLoading();
+  const urlParams = new URLSearchParams(window.location.search);
   const stackProducts = JSON.parse(localStorage.getItem("stack_products"));
   const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
   let string = `https://buckedup.com/cart/add?clear=true&products[0][id]=${stackId}`;
@@ -49,7 +50,7 @@ const handleBuy = async ({ stackId, upsellId, couponCode }) => {
       string = string + `&products[${i + 1}][quantity]=${item.quantity}`;
     });
     if (upsellId) string = string + `&products[${excessNoDuplicate.length}][id]=${upsellId}&products[${excessNoDuplicate.length}][quantity]=1`;
-    window.location.href = `${string}&cc=${couponCode}`;
+    window.location.href = `${string}&cc=${couponCode}&${urlParams}`;
   } else alert("You need to have a full stack.");
 };
 export default handleBuy;
