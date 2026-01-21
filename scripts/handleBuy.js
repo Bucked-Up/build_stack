@@ -4,7 +4,7 @@ const includesWholeWord = (str, word) => new RegExp(`\\b${word}\\b`, 'i').test(s
 
 const handleStackProducts = async (stackProducts,stackId) => {
   let string = "";
-  const response = await fetch(`https://ar5vgv5qw5.execute-api.us-east-1.amazonaws.com/list/${stackId}`);
+  const response = await fetch(`https://www.buckedup.com/product/json/detail?product_id=${stackId}`);
   const data = await response.json();
   stackProducts.forEach((prod) => {
     let name = prod.prod.name.split(" ")[0];

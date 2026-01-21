@@ -1,8 +1,8 @@
 const getProducts = async ({ products, country }) => {
-  let fetchUrl = "https://ar5vgv5qw5.execute-api.us-east-1.amazonaws.com/list/";
+  let fetchUrl = "https://www.buckedup.com/product/json/detail?product_id=";
   const fetchApi = async (id, upcharge) => {
     let url = `${fetchUrl}${id}`;
-    if (country && country !== "us") url = url + `?country=${country}`;
+    //if (country && country !== "us") url = url + `&country=${country}`;
     try {
       const response = await fetch(url);
       if (response.status === 404) throw new Error(`Product ${id} Not Found.`);
