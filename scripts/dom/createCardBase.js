@@ -1,5 +1,5 @@
-import handleProductAdded from "../handleProductAdded";
-import createSelectedProduct from "./createSelectedProduct";
+import handleProductAdded from "../handleProductAdded.js";
+import createSelectedProduct from "./createSelectedProduct.js";
 
 const round = (num) => Math.round(num * 100) / 100;
 const getProdPrice = (prod, value) => round(parseFloat(prod.price.split("$")[1]) + parseFloat(value?.price?.split("$")[1] || 0));
