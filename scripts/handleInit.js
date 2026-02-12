@@ -4,9 +4,9 @@ import handleProdButton from "./handleProdButton.js";
 import handleStep from "./handleStep.js";
 
 const handleInit = () => {
-  const currentStackProducts = JSON.parse(localStorage.getItem("stack_products"));
-  const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
-  const choosenFormula = localStorage.getItem("stack_choosen_formula")
+  const currentStackProducts = JSON.parse(localStorage.getItem("stack_productsv2"));
+  const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_productsv2"));
+  const choosenFormula = localStorage.getItem("stack_choosen_formulav2")
   if(choosenFormula){
     document.querySelector(`[formula-id='${choosenFormula}']`).classList.add("stack--active")
     handleStep();

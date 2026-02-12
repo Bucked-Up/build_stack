@@ -32,7 +32,7 @@ const createCardBase = ({ prod, value, hasFlexDiv }) => {
   } else {
     image.role = "button";
     image.addEventListener("click", () => {
-      const array = JSON.parse(localStorage.getItem("stack_products"));
+      const array = JSON.parse(localStorage.getItem("stack_productsv2"));
       const isStack = !array || array?.length < 3;
       handleProductAdded({ prod, value });
       createSelectedProduct({ prod, value, isStack });

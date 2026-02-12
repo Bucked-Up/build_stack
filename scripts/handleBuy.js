@@ -22,11 +22,11 @@ const handleStackProducts = async (stackProducts,stackId) => {
 };
 
 const handleBuy = async ({ stackId, upsellId, couponCode }) => {
-  const stackProducts = JSON.parse(localStorage.getItem("stack_products"));
+  const stackProducts = JSON.parse(localStorage.getItem("stack_productsv2"));
   if (stackProducts && stackProducts.length === 3) {
     toggleLoading();
     const urlParams = new URLSearchParams(window.location.search);
-    const excessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
+    const excessProducts = JSON.parse(localStorage.getItem("stack_excess_productsv2"));
     let string = `https://buckedup.com/cart/add?clear=true&products[0][id]=${stackId}`;
     string = string + (await handleStackProducts(stackProducts,stackId));
     const excessMapped =

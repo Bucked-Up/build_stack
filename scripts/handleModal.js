@@ -5,7 +5,7 @@ const handleModal = () => {
 
   [button, overlay].forEach((el) =>
     el.addEventListener("click", () => {
-      const stackProducts = JSON.parse(localStorage.getItem("stack_products"));
+      const stackProducts = JSON.parse(localStorage.getItem("stack_productsv2"));
       if (!stackProducts || stackProducts.length < 3) return;
       modal.classList.toggle("stack--active");
     })

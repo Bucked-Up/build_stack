@@ -19,7 +19,7 @@ const createFormulaCard = (formula) => {
 
   card.addEventListener("click", () => {
     handleStep();
-    localStorage.setItem("stack_choosen_formula", formula.id);
+    localStorage.setItem("stack_choosen_formulav2", formula.id);
     document.querySelector(`[formula-id='${formula.id}']`).classList.add("stack--active");
   });
 

@@ -1,7 +1,7 @@
 import getProducts from "./getProducts.js";
 
 const handleLocalStorageProducts = async ({ categories, timestamp }) => {
-  const cachedData = JSON.parse(localStorage.getItem("stackProducts"));
+  const cachedData = JSON.parse(localStorage.getItem("stackProductsv2"));
   if (cachedData && Date.now() - cachedData.timestamp < timestamp) return cachedData.data;
   const data = await Promise.all(
     categories.map(async (category) => {
@@ -10,7 +10,7 @@ const handleLocalStorageProducts = async ({ categories, timestamp }) => {
     })
   );
   localStorage.setItem(
-    "stackProducts",
+    "stackProductsv2",
     JSON.stringify({
       data: data,
       timestamp: Date.now(),

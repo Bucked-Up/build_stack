@@ -18,7 +18,7 @@ const handleStep = (goBack) => {
     steps[steps.length - 1].classList.add("stack--active");
     currentStep--;
     document.querySelectorAll(`[formula-id]`).forEach((el) => el.classList.remove("stack--active"));
-    const choosenFormula = localStorage.getItem("stack_choosen_formula");
+    const choosenFormula = localStorage.getItem("stack_choosen_formulav2");
     document.querySelector(`[formula-id='${choosenFormula}']`).classList.add("stack--active");
     window.scrollTo({
       top: 0,

@@ -5,9 +5,9 @@ import handleStep from "./handleStep.js";
 const handleGoBackButton = () => {
   const button = document.querySelector(".stack--go-back");
   button.addEventListener("click", () => {
-    const products = JSON.parse(localStorage.getItem("stack_products"));
+    const products = JSON.parse(localStorage.getItem("stack_productsv2"));
     if (!products || products.length === 0) {
-      localStorage.removeItem("stack_choosen_formula")
+      localStorage.removeItem("stack_choosen_formulav2")
       document.querySelector(`[formula-id].stack--active`).classList.remove("stack--active")
       handleStep(true);
       return

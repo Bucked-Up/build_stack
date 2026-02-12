@@ -10,13 +10,13 @@ const handleProductRemoved = ({ prod, value, isStack }) => {
   };
   if (isStack) {
     handleStep(true);
-    const currentStackProducts = JSON.parse(localStorage.getItem("stack_products"));
-    handleLocalStorage({ products: currentStackProducts, name: "stack_products" });
+    const currentStackProducts = JSON.parse(localStorage.getItem("stack_productsv2"));
+    handleLocalStorage({ products: currentStackProducts, name: "stack_productsv2" });
     handlePrice({ prod, value, isRemoving: true, isStack: true });
   } else {
-    const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_products"));
+    const currentExcessProducts = JSON.parse(localStorage.getItem("stack_excess_productsv2"));
     handleProdButton({ prod, value, isRemoving: true });
-    handleLocalStorage({ products: currentExcessProducts, name: "stack_excess_products" });
+    handleLocalStorage({ products: currentExcessProducts, name: "stack_excess_productsv2" });
     handlePrice({ prod, value, isRemoving: true });
   }
 };
