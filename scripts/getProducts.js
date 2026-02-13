@@ -1,6 +1,6 @@
 const getProducts = async ({ products, country }) => {
   let fetchUrl = "https://www.buckedup.com/product/json/detail?product_id=";
-  // let fetchUrl = "https://webhook-processor-production-4aa3.up.railway.app/webhook/dev?product_id=";
+  // let fetchUrl = "https://webhook-processor-production-4aa3.up.railway.app/webhook/dev-us-main?product_id=";
   const fetchApi = async (id, upcharge) => {
     let url = `${fetchUrl}${id}`;
     //if (country && country !== "us") url = url + `&country=${country}`;

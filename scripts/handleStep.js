@@ -20,9 +20,9 @@ const handleStep = (goBack) => {
     document.querySelectorAll(`[formula-id]`).forEach((el) => el.classList.remove("stack--active"));
     const choosenFormula = localStorage.getItem("stack_choosen_formulav2");
     document.querySelector(`[formula-id='${choosenFormula}']`).classList.add("stack--active");
-    window.scrollTo({
-      top: 0,
+    document.querySelector("#top").scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
     return;
   }
@@ -38,9 +38,9 @@ const handleStep = (goBack) => {
     currentStep++;
     dropdown.classList.add("stack--active");
     document.querySelectorAll(`[formula-id]`).forEach((el) => el.classList.add("stack--active"));
-    window.scrollTo({
-      top: 0,
+    document.querySelector("#top").scrollIntoView({
       behavior: "smooth",
+      block: "start",
     });
     return;
   }
@@ -57,9 +57,9 @@ const handleStep = (goBack) => {
     steps[currentStep].classList.add("stack--active");
     goBackButton.classList.add("stack--active");
   }
-  window.scrollTo({
-    top: 0,
+  document.querySelector("#top").scrollIntoView({
     behavior: "smooth",
+    block: "start",
   });
 
   //   if (goBack && steps.find((step) => step.classList.contains("stack--active")) == steps[1]) goBackButton.classList.remove("stack--active");
@@ -74,10 +74,10 @@ const handleStep = (goBack) => {
   // titles[1].classList.remove("stack--active");
   //     });
   //     steps[steps.length - 1].classList.add("stack--active");
-      // window.scrollTo({
-      //   top: 0,
-      //   behavior: "smooth",
-      // });
+  // window.scrollTo({
+  //   top: 0,
+  //   behavior: "smooth",
+  // });
   //     return;
   //   }
   //   for (let i = 0; goBack ? steps.length : i < steps.length - 1; i++) {
