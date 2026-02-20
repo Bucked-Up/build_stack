@@ -14,6 +14,8 @@ const buildStack = async ({ stackId, categories, formulas, upsellId, couponCode 
       document.body.classList.remove("loading");
     }
   });
+  let urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.size == 0) urlParams = new URLSearchParams(window.location.hash.split("?")[1]);
   toggleLoading();
   const data = await handleLocalStorageProducts({ categories, timestamp: 5 * 60 * 1000 });
   toggleLoading();
@@ -26,10 +28,10 @@ const buildStack = async ({ stackId, categories, formulas, upsellId, couponCode 
   handleGoBackButton();
   if (upsellId) {
     handleModal();
-    document.getElementById("buy-button").addEventListener("click", () => handleBuy({ upsellId, couponCode, stackId }));
-    document.getElementById("no-button").addEventListener("click", () => handleBuy({ couponCode, stackId }));
+    document.getElementById("buy-button").addEventListener("click", () => handleBuy({ upsellId, couponCode, stackId, urlParams }));
+    document.getElementById("no-button").addEventListener("click", () => handleBuy({ couponCode, stackId, urlParams }));
   } else {
-    document.getElementById("upsell-button").addEventListener("click", () => handleBuy({ couponCode, stackId }));
+    document.getElementById("upsell-button").addEventListener("click", () => handleBuy({ couponCode, stackId, urlParams }));
   }
 };
 
